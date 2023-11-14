@@ -4,9 +4,9 @@ import faker_commerce
 import pandas as pd
 from faker import Faker
 
-NUM_PRODUTOS = 2500000
+NUM_PRODUTOS = 300000
 NUM_LOJAS = 200000
-NUM_VENDAS = 10000000
+NUM_VENDAS = 2000000
 NUM_TEMPO = 2101
 
 fake = Faker("pt_BR")

@@ -1,3 +1,10 @@
+SELECT *
+FROM mentoria.f_vendas fv
+    JOIN mentoria.d_loja dl ON fv.sk_d_loja = dl.sk_d_loja
+    JOIN mentoria.d_produto dp ON fv.sk_d_produto = dp.sk_d_produto
+    JOIN mentoria.d_tempo dt ON fv.sk_d_tempo = dt.sk_d_tempo
+ORDER BY fv.sk_f_vendas DESC;
+
 SELECT
     dl.nome_loja,
     sum(fv.quantidade_vendida) as sum_quantidade_vendida,

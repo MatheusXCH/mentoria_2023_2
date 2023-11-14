@@ -12,11 +12,23 @@ class DatabaseInfo:
         self.__connection = None
 
     def __build_connection_string(self):
-        return f"mysql+mysqlconnector://{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
+        return f"mysql+pymysql://{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
 
     def connect(self):
         self.engine = create_engine(self.__build_connection_string())
         self.__connection = self.engine.connect()
+        return self
+
+    def commit(self):
+        self.__connection.commit()
+        return self
+
+    def begin(self):
+        self.__connection.begin()
+        return self
+
+    def rollback(self):
+        self.__connection.rollback()
         return self
 
     def disconnect(self):
